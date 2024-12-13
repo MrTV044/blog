@@ -1,0 +1,3 @@
+.categories li {
+  @apply rounded-sm border border-hidden bg-white p-1 text-black text-lg;
+}

@@ -1,0 +1,8 @@
+.contact-me {
+  @apply mt-20 flex justify-center gap-x-40 bg-neutral-800 pb-20 pt-20 text-white;
+}
+
+input,
+textarea {
+  @apply p-1.5 text-black;
+}

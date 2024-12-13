@@ -1,0 +1,11 @@
+.header link:hover {
+  @apply text-green-400;
+}
+
+.header ul {
+  @apply mt-5 flex justify-center gap-5 text-2xl;
+}
+
+.header {
+  @apply mb-5;
+}
