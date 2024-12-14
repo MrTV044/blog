@@ -1,8 +1,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import "./page.css";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
 
-export default function HomePage() {
+async function getSinglePost(slug?: string) {
+  try {
+    const res = await fetch(
+      `https://cdn.contentful.com/spaces/tvndgufzufq7/environments/master/entries?access_token=SzPPef_QzrgCC1tJK4jBJsuR_zLKxxpJcmUTnuUb168&content_type=blogpostPurwa&fields.slug=how-tiny-changes-lead-to-big-results`,
+    );
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const slug = (await params).slug;
+  const post = await getSinglePost(slug);
+  const data = post.items[0].fields;
+  console.log(slug);
+  console.log(post);
   return (
     <>
       <div>
@@ -25,7 +49,7 @@ export default function HomePage() {
               <span>identity, exploration.</span>
             </p>
 
-            <p className="max-w-3xl text-left text-lg text-gray-100">
+            <p className="max-w-xl text-left text-lg text-gray-100">
               Welcome to our car blog, where we bring together a passion for
               driving and a love for all things automotive. Whether you’re a
               die-hard car enthusiast or someone who just wants to get from
@@ -36,6 +60,8 @@ export default function HomePage() {
         </div>
 
         {/* categories */}
+
+        <h2 className="mx-auto mb-5 mt-5 w-fit text-2xl">Blog Tags</h2>
         <div className="mt-5">
           <ul className="categories flex justify-center gap-5">
             <li>
@@ -64,10 +90,20 @@ export default function HomePage() {
             </li>
           </ul>
         </div>
-        <div>
-          
-        </div>
       </div>
+      <section>
+        <section>
+          <p>{data.title}</p>
+          <p>{data.author}</p>
+          {documentToReactComponents(data.content, {
+            renderNode: {
+              [BLOCKS.PARAGRAPH]: (node, children) => {
+                return <p className="text-red-500">{children}</p>;
+              },
+            },
+          })}
+        </section>
+      </section>
     </>
   );
 }
