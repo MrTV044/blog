@@ -4,7 +4,7 @@ import "./page.css";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
-async function getSinglePost(slug?: string) {
+async function getSinglePost() {
   try {
     const res = await fetch(
       `https://cdn.contentful.com/spaces/tvndgufzufq7/environments/master/entries?access_token=SzPPef_QzrgCC1tJK4jBJsuR_zLKxxpJcmUTnuUb168&content_type=blogpostPurwa&fields.slug=how-tiny-changes-lead-to-big-results`,
@@ -23,7 +23,7 @@ export default async function HomePage({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
-  const post = await getSinglePost(slug);
+  const post = await getSinglePost();
   const data = post.items[0].fields;
   console.log(slug);
   console.log(post);
