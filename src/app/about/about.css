@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.author div {
+  @apply block rounded-xl border-2 border-gray-600 p-5;
+}
