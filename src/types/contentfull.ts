@@ -8,13 +8,14 @@ export interface contentfull {
         slug: string;
         author: string;
         content: Document;
+        shortDescription: Document;
         featuredImage: {
           sys: {
             id: string;
           };
         };
       };
-    }
+    },
   ];
   includes: {
     Asset: [{ fields: { file: { url: string } }; sys: { id: string } }];

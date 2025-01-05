@@ -45,16 +45,21 @@ export default async function DynamicslugPage({
   console.log(slug);
   console.log(post);
   return (
-    <section>
-      <h2>{data.title}</h2>
-      <p>{data.author}</p>
+    <section className="ml-10 mr-10 mt-10">
+      <h2 className="text-3xl">{data.title}</h2>
+      <p className="mb-5 text-lg">{data.author}</p>
       {documentToReactComponents(data.content, {
         renderNode: {
-          [BLOCKS.HEADING_2]: (node, childern) => {
-            return <h2 className="text-xl">{childern}</h2>;
+          [BLOCKS.HEADING_4]: (node, childern) => {
+            return <h2 className="text-xl text-red-500">{childern}</h2>;
           },
           [BLOCKS.PARAGRAPH]: (node, children) => {
-            return <p className="font-semibold text-gray-200">{children}</p>;
+            return (
+              <p className="mb-3 font-semibold text-gray-200">{children}</p>
+            );
+          },
+          [BLOCKS.UL_LIST]: (node, children) => {
+            return <ul className="list-disc pl-7">{children}</ul>;
           },
         },
       })}

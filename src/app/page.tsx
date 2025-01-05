@@ -7,7 +7,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 async function getSinglePost() {
   try {
     const res = await fetch(
-      `https://cdn.contentful.com/spaces/tvndgufzufq7/environments/master/entries?access_token=SzPPef_QzrgCC1tJK4jBJsuR_zLKxxpJcmUTnuUb168&content_type=blogpostPurwa&fields.slug=how-tiny-changes-lead-to-big-results`,
+      `https://cdn.contentful.com/spaces/tvndgufzufq7/environments/master/entries?access_token=SzPPef_QzrgCC1tJK4jBJsuR_zLKxxpJcmUTnuUb168&content_type=blogpostPurwa&fields.slug=The-History-and-Evolution-of-Ferrari`,
     );
     const data = await res.json();
     return data;
@@ -91,17 +91,24 @@ export default async function HomePage({
           </ul>
         </div>
       </div>
-      <section>
+      <h2 className="mb-2 ml-5 text-2xl">Featured Post</h2>
+      <section className="ml-5">
         <section>
           <p>{data.title}</p>
           <p>{data.author}</p>
-          {documentToReactComponents(data.content, {
+
+          {documentToReactComponents(data.shortDescription, {
             renderNode: {
               [BLOCKS.PARAGRAPH]: (node, children) => {
-                return <p className="text-red-500">{children}</p>;
+                return <p className="text-white">{children}</p>;
+              },
+
+              [BLOCKS.HEADING_1]: (node, children) => {
+                return <p className="text-red-600">{children}</p>;
               },
             },
           })}
+          <Link href={`/blogs/${data.slug}`}> Read more </Link>
         </section>
       </section>
     </>
