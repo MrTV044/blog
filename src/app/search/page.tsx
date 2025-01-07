@@ -3,10 +3,24 @@
 import { ContentfulPost } from "@/types/contentfull";
 import { getContentfulData } from "@/utils/get-contetful-data";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import Link from "next/link";
 
+
+
+
+
+
 export default function SearchPage() {
+  return(
+    <Suspense>
+      <SearchComponent/>
+    </Suspense>
+  )
+}
+
+
+function SearchComponent(){
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("search_query");
   const [results, setResults] = useState<ContentfulPost[]>([]);
