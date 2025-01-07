@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./header.css";
+import SearchBar from "./search-bar";
 
 export default function Header() {
   return (
@@ -18,6 +19,7 @@ export default function Header() {
           <li>
             <Link href="/about">About</Link>
           </li>
+          <SearchBar />
         </ul>
       </nav>
     </>

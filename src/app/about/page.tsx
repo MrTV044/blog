@@ -4,6 +4,7 @@ import "./about.css";
 export default function Blogs() {
   return (
     <div className="ml-5 mr-5">
+      {" "}
       {/* vision and mission */}
       <div className="mb-8 flex gap-5">
         <div>
@@ -31,11 +32,11 @@ export default function Blogs() {
           </p>
         </div>
       </div>
-      {/* Author's bio */}
-      <h1 className="m-auto mb-2 w-fit text-2xl">Author's Biography</h1>
+      {/* Author's bio */}{" "}
+      <h1 className="m-auto mb-2 w-fit text-2xl">Author&apos;s Biography</h1>{" "}
       <div className="author grid grid-cols-1 gap-4 bg-black p-10 pt-5 sm:grid-cols-3 sm:gap-10">
         <div>
-          <Image></Image>
+          <Image src="/headshot-guy-1.jpg" alt="" width={500} height={500} />
           <h1>Alex Parker</h1>
           <p>
             A seasoned automotive journalist with over 15 years of experience
@@ -47,40 +48,66 @@ export default function Blogs() {
           </p>
         </div>
         <div>
+          <div className="relative h-[300px] w-full overflow-hidden">
+            <Image
+              src="/headshot-girl-1.jpg"
+              alt=""
+              fill
+              className="object-cover object-top"
+            />
+          </div>
           <h1>Emma Davis</h1>
           <p>
             a longstanding admiration for Ferrari and its rich legacy in the
             automotive world. Having worked in both the luxury car and auction
-            industries, Emma's writings often delve into Ferrari’s unique
+            industries, Emma&apos;s writings often delve into Ferrari’s unique
             designs, its impact on motorsports, and the growing collector market
             for classic Ferraris. She is widely known for her engaging narrative
             style and meticulously researched articles.
           </p>
         </div>
         <div>
+          <Image
+            src="/headshot-guy-2.jpg"
+            alt="picture guy"
+            width={500}
+            height={500}
+          />
           <h1>Liam Carter</h1>
           <p>
-            Liam's passion for Lamborghini lies not only in its superb
+            Liam&apos;s passion for Lamborghini lies not only in its superb
             performance but also in its bold and futuristic designs. Over the
-            years, he has written extensively on Lamborghini's innovations in
-            technology and aesthetics, with a specific interest in the brand's
-            pivotal models like the Diablo, Gallardo, and Huracán. Liam provides
-            insightful commentary on Lamborghini's impact on luxury and supercar
-            culture.
+            years, he has written extensively on Lamborghini&apos;s innovations
+            in technology and aesthetics, with a specific interest in the
+            brand&apos;s pivotal models like the Diablo, Gallardo, and Huracán.
+            Liam provides insightful commentary on Lamborghini&apos;s impact on
+            luxury and supercar culture.
           </p>
         </div>
         <div>
+          <Image
+            src="/headshot-girl-2.jpg"
+            alt="picture girl"
+            width={500}
+            height={500}
+          />
           <h1>Sophia Morgan</h1>
           <p>
             Sophia has spent over a decade immersing herself in the world of
             Lamborghini. With a background in automotive design, Isabella brings
-            a unique perspective to her writings on Lamborghini's design,
+            a unique perspective to her writings on Lamborghini&apos;s design,
             technology, and performance. As a regular contributor to several
             luxury car magazines, her analysis of the Lamborghini brand spans
             from the early Miura to the latest Aventador models.
           </p>
         </div>
         <div>
+          <Image
+            src="/headshot-guy-3.jpg"
+            alt="picture guy"
+            width={500}
+            height={500}
+          />
           <h1>Michael Davis</h1>
           <p>
             Michael Davis is a dedicated automotive historian with a special
@@ -92,6 +119,12 @@ export default function Blogs() {
           </p>
         </div>
         <div>
+          <Image
+            src="/headshot-girl-3.jpg"
+            alt="picture gilr"
+            width={500}
+            height={500}
+          />
           <h1>Sarah Williams</h1>
           <p>
             Sarah is an automotive restoration expert and writer with a

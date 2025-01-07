@@ -1,4 +1,4 @@
-import { contentfull } from "@/types/contentfull";
+import { ContentfulPost } from "@/types/contentfull";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -18,7 +18,7 @@ async function getPost() {
   }
 }
 
-function mapblogpost(data: contentfull) {
+function mapblogpost(data: ContentfulPost) {
   const posts = data.items.map((item) => {
     const featuredImage = data.includes.Asset.find(
       (asset) => asset.sys.id === item.fields.featuredImage.sys.id,
@@ -57,7 +57,7 @@ export default async function PostsPage() {
               ></Image>
             </div>
             <h2 className="mt-5">{el.title}</h2>
-            <h2 >Written by: {el.author}</h2>
+            <h2>Written by: {el.author}</h2>
             {documentToReactComponents(el.shortDescription, {
               renderNode: {
                 [BLOCKS.HEADING_4]: (node, childern) => {
