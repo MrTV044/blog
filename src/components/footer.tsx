@@ -26,7 +26,7 @@ export default function Contact_me() {
             Say hello at <a href="">arifincahyadisantoso@gmail.com</a>
           </p>
           <p>
-            For more info, here's my <a href="">resume</a>
+            For more info, here&apos;s my <a href="">resume</a>
           </p>
         </div>
         <div>
