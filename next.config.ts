@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: "4kwallpapers.com" },
+      { protocol: "https", hostname: "www.wallpaperflare.com" },
       { protocol: "https", hostname: "images.ctfassets.net" },
     ],
   },

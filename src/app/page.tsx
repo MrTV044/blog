@@ -34,7 +34,7 @@ export default async function HomePage({
         <div className="relative h-[500px] w-full">
           <Image
             src={
-              "https://4kwallpapers.com/images/wallpapers/lamborghini-1920x1080-16493.jpg"
+              "/lamborghini-1920x1080-16493.jpg"
             }
             alt="lamborghini"
             className="object-cover object-bottom"
