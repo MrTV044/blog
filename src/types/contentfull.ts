@@ -25,3 +25,25 @@ export interface ContentfulCategory {
     slug: string;
   };
 }
+
+export interface HomePage {
+  items: [
+    {
+      fields: {
+        shortDescription: Document;
+        title: string;
+        slug: string;
+        author: string;
+        content: Document;
+        featuredImage: {
+          sys: {
+            id: string;
+          };
+        };
+      };
+    },
+  ];
+  includes: {
+    Asset: [{ fields: { file: { url: string } }; sys: { id: string } }];
+  };
+}

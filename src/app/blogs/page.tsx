@@ -1,4 +1,4 @@
-import { ContentfulPost } from "@/types/contentfull";
+import { HomePage } from "@/types/contentfull";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
 import { BLOCKS } from "@contentful/rich-text-types";
@@ -18,23 +18,27 @@ async function getPost() {
   }
 }
 
-function mapblogpost(data: ContentfulPost) {
-  const posts = data.items.map((item) => {
-    const featuredImage = data.includes.Asset.find(
-      (asset) => asset.sys.id === item.fields.featuredImage.sys.id,
-    );
+function mapblogpost(data: HomePage) {
+  if (data) {
+    const posts = data.items.map((item) => {
+      const featuredImage = data.includes.Asset.find(
+        (asset) => asset.sys.id === item.fields.featuredImage.sys.id,
+      );
 
-    return {
-      title: item.fields.title,
-      slug: item.fields.slug,
-      content: item.fields.content,
-      author: item.fields.author,
-      shortDescription: item.fields.shortDescription,
-      featuredImage: `https:${featuredImage?.fields.file.url}`,
-    };
-  });
+      return {
+        title: item.fields.title,
+        slug: item.fields.slug,
+        content: item.fields.content,
+        author: item.fields.author,
+        shortDescription: item.fields.shortDescription,
+        featuredImage: `https:${featuredImage?.fields.file.url}`,
+      };
+    });
 
-  return posts;
+    return posts;
+  } else {
+    console.error("Invalid response structure");
+  }
 }
 
 export default async function PostsPage() {
@@ -45,7 +49,7 @@ export default async function PostsPage() {
 
   return (
     <section className="ml-10 mr-10 grid grid-cols-3 gap-10">
-      {posts.map((el) => (
+      {posts!.map((el) => (
         <Link href={`/blogs/${el.slug}`} key={el.slug}>
           <article key={el.slug}>
             <div className="relative h-32 w-full">
