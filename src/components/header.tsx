@@ -1,27 +1,51 @@
 import Link from "next/link";
-import "./header.css";
 import SearchBar from "./search-bar";
 
 export default function Header() {
   return (
-    <>
-      <nav className="header">
-        <ul>
+    <header className=" shadow-md">
+      <nav className="container mx-auto flex flex-wrap items-center justify-between px-6 py-4">
+        {/* Navigation Links */}
+        <ul className="flex items-center space-x-6 text-gray-100 ">
           <li>
-            <Link href="/">Home</Link>
+            <Link
+              href="/"
+              className="hover:text-red-400 transition duration-300"
+            >
+              Home
+            </Link>
           </li>
           <li>
-            <Link href="/blogs">Blogs</Link>
+            <Link
+              href="/blogs"
+              className="hover:text-red-400 transition duration-300"
+            >
+              Blogs
+            </Link>
           </li>
           <li>
-            <Link href="/categories">Categories</Link>
+            <Link
+              href="/categories"
+              className="hover:text-red-400 transition duration-300"
+            >
+              Categories
+            </Link>
           </li>
           <li>
-            <Link href="/about">About</Link>
+            <Link
+              href="/about"
+              className="hover:text-red-400 transition duration-300"
+            >
+              About
+            </Link>
           </li>
-          <SearchBar />
         </ul>
+
+        {/* Search Bar */}
+        <div className="flex items-center">
+          <SearchBar />
+        </div>
       </nav>
-    </>
+    </header>
   );
 }

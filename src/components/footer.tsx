@@ -25,9 +25,6 @@ export default function Contact_me() {
           <p>
             Say hello at <a href="">arifincahyadisantoso@gmail.com</a>
           </p>
-          <p>
-            For more info, here&apos;s my <a href="">resume</a>
-          </p>
         </div>
         <div>
           <form action="" onSubmit={Delete}>
