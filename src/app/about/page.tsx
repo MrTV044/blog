@@ -3,13 +3,14 @@ import "./about.css";
 
 export default function Blogs() {
   return (
-    <div className="ml-5 mr-5">
-      {" "}
-      {/* vision and mission */}
-      <div className="mb-8 flex gap-5">
+    <div className="bg-black text-white px-5 py-10">
+      {/* Vision and Mission */}
+      <div className="mb-16 grid gap-10 lg:grid-cols-2">
         <div>
-          <h1 className="m-auto mb-2 w-fit text-xl">Vision</h1>
-          <p>
+          <h1 className="text-2xl font-bold mb-4 text-center lg:text-left">
+            Vision
+          </h1>
+          <p className="text-gray-300 leading-relaxed">
             We aim to be the leading platform for automotive knowledge, where
             enthusiasts, collectors, and professionals can access valuable
             information, spark discussions, and stay updated on everything from
@@ -20,8 +21,10 @@ export default function Blogs() {
           </p>
         </div>
         <div>
-          <h2 className="m-auto mb-2 w-fit text-xl">Mission</h2>
-          <p>
+          <h2 className="text-2xl font-bold mb-4 text-center lg:text-left">
+            Mission
+          </h2>
+          <p className="text-gray-300 leading-relaxed">
             Our mission is to provide comprehensive, insightful content for
             automotive enthusiasts, focusing on luxury brands, performance
             vehicles, and classic cars. We strive to be the go-to destination
@@ -32,108 +35,110 @@ export default function Blogs() {
           </p>
         </div>
       </div>
-      {/* Author's bio */}{" "}
-      <h1 className="m-auto mb-2 w-fit text-2xl">Author&apos;s Biography</h1>{" "}
-      <div className="author grid grid-cols-1 gap-4 bg-black p-10 pt-5 sm:grid-cols-3 sm:gap-10">
-        <div>
-          <Image src="/headshot-guy-1.jpg" alt="" width={500} height={500} />
-          <h1>Alex Parker</h1>
-          <p>
+
+      {/* Author's Bio */}
+      <h1 className="text-3xl font-bold mb-10 text-center">
+        Author&apos;s Biography
+      </h1>
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Author Card */}
+        <div className="bg-gray-800 rounded-lg p-5 hover:shadow-lg transition">
+          <Image
+            src="/headshot-guy-1.jpg"
+            alt="Alex Parker"
+            width={500}
+            height={500}
+            className="rounded-lg"
+          />
+          <h2 className="mt-5 text-xl font-semibold">Alex Parker</h2>
+          <p className="mt-3 text-gray-300">
             A seasoned automotive journalist with over 15 years of experience
             covering Italian sports cars. Specializing in Ferrari, Alex has
             closely followed the marque’s evolution from its classic 1960s
-            designs to modern-day models. His deep passion for Ferrari’s
-            engineering excellence and racing pedigree has made him a respected
-            voice in automotive publications worldwide.
+            designs to modern-day models.
           </p>
         </div>
-        <div>
-          <div className="relative h-[300px] w-full overflow-hidden">
+
+        {/* Author Card */}
+        <div className="bg-gray-800 rounded-lg p-5 hover:shadow-lg transition">
+          <div className="relative h-64 w-full">
             <Image
               src="/headshot-girl-1.jpg"
-              alt=""
+              alt="Emma Davis"
               fill
-              className="object-cover object-top"
+              className="rounded-lg object-cover object-top"
             />
           </div>
-          <h1>Emma Davis</h1>
-          <p>
-            a longstanding admiration for Ferrari and its rich legacy in the
-            automotive world. Having worked in both the luxury car and auction
-            industries, Emma&apos;s writings often delve into Ferrari’s unique
-            designs, its impact on motorsports, and the growing collector market
-            for classic Ferraris. She is widely known for her engaging narrative
-            style and meticulously researched articles.
+          <h2 className="mt-5 text-xl font-semibold">Emma Davis</h2>
+          <p className="mt-3 text-gray-300">
+            With admiration for Ferrari&apos;s rich legacy, Emma delves into its
+            designs, motorsports impact, and the growing collector market for
+            classic Ferraris. Known for her engaging style and research.
           </p>
         </div>
-        <div>
+
+        {/* Author Card */}
+        <div className="bg-gray-800 rounded-lg p-5 hover:shadow-lg transition">
           <Image
             src="/headshot-guy-2.jpg"
-            alt="picture guy"
+            alt="Liam Carter"
             width={500}
             height={500}
+            className="rounded-lg"
           />
-          <h1>Liam Carter</h1>
-          <p>
-            Liam&apos;s passion for Lamborghini lies not only in its superb
-            performance but also in its bold and futuristic designs. Over the
-            years, he has written extensively on Lamborghini&apos;s innovations
-            in technology and aesthetics, with a specific interest in the
-            brand&apos;s pivotal models like the Diablo, Gallardo, and Huracán.
-            Liam provides insightful commentary on Lamborghini&apos;s impact on
-            luxury and supercar culture.
+          <h2 className="mt-5 text-xl font-semibold">Liam Carter</h2>
+          <p className="mt-3 text-gray-300">
+            Liam writes extensively on Lamborghini innovations in technology
+            and aesthetics, focusing on pivotal models like the Diablo,
+            Gallardo, and Huracán.
           </p>
         </div>
-        <div>
+
+        {/* Author Card */}
+        <div className="bg-gray-800 rounded-lg p-5 hover:shadow-lg transition">
           <Image
             src="/headshot-girl-2.jpg"
-            alt="picture girl"
+            alt="Sophia Morgan"
             width={500}
             height={500}
+            className="rounded-lg"
           />
-          <h1>Sophia Morgan</h1>
-          <p>
-            Sophia has spent over a decade immersing herself in the world of
-            Lamborghini. With a background in automotive design, Isabella brings
-            a unique perspective to her writings on Lamborghini&apos;s design,
-            technology, and performance. As a regular contributor to several
-            luxury car magazines, her analysis of the Lamborghini brand spans
-            from the early Miura to the latest Aventador models.
+          <h2 className="mt-5 text-xl font-semibold">Sophia Morgan</h2>
+          <p className="mt-3 text-gray-300">
+            Sophia combines her design background and passion for Lamborghinis
+            to deliver rich analyses from the Miura to Aventador.
           </p>
         </div>
-        <div>
+
+        {/* Author Card */}
+        <div className="bg-gray-800 rounded-lg p-5 hover:shadow-lg transition">
           <Image
             src="/headshot-guy-3.jpg"
-            alt="picture guy"
+            alt="Michael Davis"
             width={500}
             height={500}
+            className="rounded-lg"
           />
-          <h1>Michael Davis</h1>
-          <p>
-            Michael Davis is a dedicated automotive historian with a special
-            focus on British classics, particularly the iconic Classic Mini.
-            With a background in engineering, Michael brings a technical lens to
-            his work, diving deep into the history, restoration, and unique
-            qualities that made the Classic Mini a beloved automobile across the
-            globe.
+          <h2 className="mt-5 text-xl font-semibold">Michael Davis</h2>
+          <p className="mt-3 text-gray-300">
+            With a focus on British classics, Michael brings a technical lens to
+            restoring and understanding the beloved Classic Mini.
           </p>
         </div>
-        <div>
+
+        {/* Author Card */}
+        <div className="bg-gray-800 rounded-lg p-5 hover:shadow-lg transition">
           <Image
             src="/headshot-girl-3.jpg"
-            alt="picture gilr"
+            alt="Sarah Williams"
             width={500}
             height={500}
+            className="rounded-lg"
           />
-          <h1>Sarah Williams</h1>
-          <p>
-            Sarah is an automotive restoration expert and writer with a
-            particular fondness for the Classic Mini. With a keen eye for detail
-            and an immense knowledge of its engineering, she specializes in
-            restoring and refurbishing Minis. Sarah’s expert advice has helped
-            countless Classic Mini enthusiasts maintain and bring back their
-            vehicles to their original glory, and her work serves as an
-            educational guide for anyone seeking to understand this iconic car.
+          <h2 className="mt-5 text-xl font-semibold">Sarah Williams</h2>
+          <p className="mt-3 text-gray-300">
+            Sarah is a restoration expert specializing in Classic Minis,
+            sharing insights and advice for enthusiasts worldwide.
           </p>
         </div>
       </div>

@@ -1,19 +1,15 @@
-// import Image from "next/image";
-// import { BLOCKS } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 
 export async function generateStaticParams() {
   try {
     const res = await fetch(
-      "https://cdn.contentful.com/spaces/tvndgufzufq7/environments/master/entries?access_token=SzPPef_QzrgCC1tJK4jBJsuR_zLKxxpJcmUTnuUb168&content_type=blogpostPurwa",
+      "https://cdn.contentful.com/spaces/tvndgufzufq7/environments/master/entries?access_token=SzPPef_QzrgCC1tJK4jBJsuR_zLKxxpJcmUTnuUb168&content_type=blogpostPurwa"
     );
     const data = await res.json();
-    return data.items.map((el: { fields: { slug: string } }) => {
-      return {
-        slug: el.fields.slug,
-      };
-    });
+    return data.items.map((el: { fields: { slug: string } }) => ({
+      slug: el.fields.slug,
+    }));
   } catch (error) {
     console.error(error);
     return null;
@@ -23,7 +19,7 @@ export async function generateStaticParams() {
 async function getSinglePost(slug: string) {
   try {
     const res = await fetch(
-      `https://cdn.contentful.com/spaces/tvndgufzufq7/environments/master/entries?access_token=SzPPef_QzrgCC1tJK4jBJsuR_zLKxxpJcmUTnuUb168&content_type=blogpostPurwa&fields.slug=${slug}`,
+      `https://cdn.contentful.com/spaces/tvndgufzufq7/environments/master/entries?access_token=SzPPef_QzrgCC1tJK4jBJsuR_zLKxxpJcmUTnuUb168&content_type=blogpostPurwa&fields.slug=${slug}`
     );
     const data = await res.json();
     return data;
@@ -42,27 +38,35 @@ export default async function DynamicslugPage({
   const post = await getSinglePost(slug);
   const data = post.items[0].fields;
 
-  console.log(slug);
-  console.log(post);
   return (
-    <section className="ml-10 mr-10 mt-10">
-      <h2 className="text-3xl">{data.title}</h2>
-      <p className="mb-5 text-lg">{data.author}</p>
-      {documentToReactComponents(data.content, {
-        renderNode: {
-          [BLOCKS.HEADING_4]: (node, childern) => {
-            return <h2 className="text-xl text-red-500">{childern}</h2>;
+    <section className="px-6 py-10 md:px-20 lg:px-40 bg-gray-900 text-white">
+      {/* Title */}
+      <div className="mb-6">
+        <h1 className="text-4xl font-bold text-red-400">{data.title}</h1>
+        <p className="mt-2 text-lg text-gray-400">By {data.author}</p>
+      </div>
+
+      {/* Content */}
+      <div className="leading-relaxed">
+        {documentToReactComponents(data.content, {
+          renderNode: {
+            [BLOCKS.HEADING_4]: (node, children) => (
+              <h2 className="text-2xl text-red-500 mt-6">{children}</h2>
+            ),
+            [BLOCKS.PARAGRAPH]: (node, children) => (
+              <p className="mb-4 text-gray-300">{children}</p>
+            ),
+            [BLOCKS.UL_LIST]: (node, children) => (
+              <ul className="mb-4 list-disc list-inside pl-4 text-gray-300">
+                {children}
+              </ul>
+            ),
+            [BLOCKS.LIST_ITEM]: (node, children) => (
+              <li className="mb-2">{children}</li>
+            ),
           },
-          [BLOCKS.PARAGRAPH]: (node, children) => {
-            return (
-              <p className="mb-3 font-semibold text-gray-200">{children}</p>
-            );
-          },
-          [BLOCKS.UL_LIST]: (node, children) => {
-            return <ul className="list-disc pl-7">{children}</ul>;
-          },
-        },
-      })}
+        })}
+      </div>
     </section>
   );
 }

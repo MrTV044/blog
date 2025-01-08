@@ -10,18 +10,19 @@ export default async function BlogPage() {
   console.log(posts);
 
   return (
-    <section className="">
-      <div>
-        <h2 className="m-auto mb-5 mt-5 w-fit">BLOG POSTS</h2>
-        <div className="m-auto flex w-fit gap-5">
+    <section className="p-5">
+      <div className="max-w-screen-lg mx-auto">
+        <h2 className="text-center mb-5 mt-5 text-4xl font-bold">BLOG POSTS</h2>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {posts?.map((post, index: number) => (
             <article
               key={index}
-              className="mb-5 block w-fit rounded-xl border-2"
+              className="rounded-xl border-2 shadow-lg overflow-hidden transform transition hover:scale-105"
             >
               <Link
                 key={post.fields.slug as string}
                 href={`/categories/${post.fields.slug}`}
+                className="block p-5 text-xl text-center hover:bg-green-500 hover:text-black transition"
               >
                 {post.fields.name}
               </Link>
